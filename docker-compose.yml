@@ -1,0 +1,15 @@
+version: '3'
+ 
+services:
+  tumorweb_frontend:
+    image: tumorweb_frontend:1.1-node20.15.1
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    depends_on:
+      - tumorweb_backend
+  tumorweb_backend:
+    image: tumorweb_backend:2.0-python-3.12.7
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
